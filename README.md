@@ -20,3 +20,29 @@ b. Setting up WinSCP and putty
 ![](https://github.com/uditar/CS7NS1/blob/master/images/tempsnip3.png)
 
 - Open putty and login as : ubuntu
+
+## Setting up P100 GPUs on Google cloud console
+a. Creating a VM instance
+- Create a new project ex.[inferno](https://console.cloud.google.com/compute/instancesAdd?project=inferno-221222)
+- Create a new VM instance with the following specifications
+
+![](https://github.com/uditar/CS7NS1/blob/master/images/customise.png)
+-	Choose europe-west1 (Belgium) as google cloud only allows GPUs in some regions as listed [here.](https://cloud.google.com/blog/products/gcp/expanding-our-gpu-portfolio-with-nvidia-tesla-v100)
+
+-	Customise the machine type as below and SSH into VM
+![](https://github.com/uditar/CS7NS1/blob/master/images/customise2.png)
+
+### Installing drivers for Tesla P100
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install build-essential linux-image-extra-virtual
+```
+```
+wget http://uk.download.nvidia.com/tesla/396.44/NVIDIA-Linux-x86_64-396.44.run.run
+sudo /bin/bash NVIDIA-Linux-x86_64-396.44.run.run
+```
+
+
+ 
+ 
